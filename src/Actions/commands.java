@@ -12,6 +12,7 @@ import java.util.ArrayList;
 
 // Personal Classes
 import static Actions.helpers.blankspace;
+import java.util.Scanner;
 
 /**
  * @matricula 18550937
@@ -19,14 +20,12 @@ import static Actions.helpers.blankspace;
  * @author Reydescel Herrera
  */
 public class commands {
-    // Set to 100 as an exagerated data
     public static List<String> data = new ArrayList<>();
-    
     
     /**
      * Make new tasks
-     * @param description
-     * @param data
+     * @param description it's what we keep it in the Array
+     * @param data the actual array of the Description Task
      * @return data
      */
     public static List<String> add(String[] description, List<String> data) {
@@ -42,7 +41,7 @@ public class commands {
     
     /**
      * Take a list of all the Tasks incompletes
-     * @param data
+     * @param data the actual array from where to extract every item
      */
     public static void list(List<String> data) {
         int ID;
@@ -65,16 +64,34 @@ public class commands {
     
     /**
      * Edit the actual task by an ID
+     * @param data it's from where to edit the description task
+     * @param id what's the index of the description task in the array
      */
-    public static void edit() {
+    public static void edit(List<String> data, int id) {
+        Scanner input = new Scanner(System.in);
         
+        data.get(id);
+        id += 1;
+        System.out.print("Edit this task #" + id + " to : >");
+        id -= 1;
+        String newTask = input.nextLine();
+        data.remove(id);
+        data.add(newTask);
     }
     
     /**
      * Makes the status of the task to complete by an ID
+     * @param data it's from where to remove the actual element by id
+     * @param id what's the index of the task to remove it
      */
-    public static void done() {
+    public static void done(List<String> data, int id) {
+        Scanner input = new Scanner(System.in);
         
+        data.get(id);
+        id += 1;
+        System.out.println("Removing the task #" + id + " cause it's done.");
+        id -= 1;
+        data.remove(id);
     }
     
     /**

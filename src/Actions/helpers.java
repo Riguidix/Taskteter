@@ -10,8 +10,6 @@ package Actions;
  * @author Reydescel Herrera
  */
 public class helpers {        
-    
-                
     /**
      * Handles the space as the Terminal do with an update of if you need 3 
      * spaces you type in "blankspace( x )" as x the value of spaces to print
@@ -34,7 +32,7 @@ public class helpers {
         
         return item;
     }
-
+            
     /**
      * Help to find the string by cut on spaces.
      * @param user It's the actual String from the Scanner in Main
@@ -58,7 +56,7 @@ public class helpers {
      * @return
      */
     public static int findingCommands(String user, String[] arrayData) {
-        int condition = 0;
+        int condition = 0, id;
         if(arrayData[0].toLowerCase().equals("task")) {
             try {
                 switch (arrayData[1].toLowerCase()) {
@@ -69,8 +67,13 @@ public class helpers {
                         commands.list(commands.data);                        
                         break;
                     case "-edit":
+                        id = Integer.parseInt(arrayData[2]) - 1;
+                        System.out.println(id);
+                        commands.edit(commands.data, id);
                         break;               
                     case "-done":
+                        id = Integer.parseInt(arrayData[2]) - 1;
+                        commands.done(commands.data, id);
                         break;
                     case "-help":
                     case "-h":
