@@ -43,6 +43,8 @@ public class commands {
      * Take a list of all the Tasks incompletes
      * @param data the actual array from where to extract every item
      */
+    
+    // Use the \t instead of the tab 
     public static void list(List<String> data) {
         int ID;
         System.out.print("          ID         |          DESCRIPTION          \n");
